@@ -1,0 +1,77 @@
+\documentclass[12pt]{report}
+
+
+\input{format/required_packages}
+\input{format/page_style_preamble}
+\input{format/math_commands}
+\input{format/theorem_environments}
+\input{format/title_page_info}
+\input{format/abstract}
+% other adhoc configurations
+\pdfcompresslevel=9
+\addtolength{\voffset}{-4em}
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\thesistitlepage
+
+\thesiscopyrightpage          
+    
+	
+\addcontentsline{toc}{chapter}{Abstract} 
+\thesisabstract
+
+\addcontentsline{toc}{chapter}{Dedication} 
+\thesisdedicationpage
+
+% \addcontentsline{toc}{chapter}{Acknowledgments}
+% \thesisacknowledgments
+
+\makeatletter \renewcommand{\@dotsep}{10000} \makeatother
+
+\renewcommand{\contentsname}{\normalsize{Table of Contents}}
+\tableofcontents
+
+% \addcontentsline{toc}{chapter}{List of Tables}   
+% \listoftables
+
+% \addcontentsline{toc}{chapter}{List of Figures}	
+% \listoffigures
+
+\newpage
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+\label{chp::introduction}
+\input{chapters/ch1}
+
+\chapter{Background}
+\label{chp::background}
+\input{chapters/ch2}
+
+\chapter{How to Insert Figures}
+\label{chp::without_uncertainty}
+\input{chapters/ch3}
+
+\chapter{How to write equations}
+\label{chp::with_uncertainty}
+\input{chapters/ch4}
+
+\chapter{How to cite papers}
+\label{chp::citations}
+\input{chapters/ch5}
+
+\chapter{Conclusion \& Future Work}
+\label{chp::conclusions}
+\input{chapters/ch6}
+
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{ieeetr}
+\bibliography{refs.bib}
+
+
+\end{document}
+ 

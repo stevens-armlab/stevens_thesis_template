@@ -1,0 +1,74 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%         CHAPTER 4
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{How to write Equations and Refer to Equation numbers}
+\label{sec::ch4::problem-def}
+\subsection{Let us write an equation}
+\label{sec::ch3::entro-info}
+We use Shannon's entropy as the metric to represent the completeness of our knowledge about the map, which is described in the following equation :
+
+\begin{align}
+	\label{eq::ch3::entropy}
+	H(m) = - \sum_i \sum_j p(m_{i,j})  \log p(m_{i,j}).
+\end{align}
+\subsection{Let us refer to the equation}
+In Eq. (\ref{eq::ch3::entropy}), $m$ represents the current occupancy grid map, where index $i$ refers to the individual grid cells of the map and index $j$ refers to the possible outcomes of the Bernoulli random variable that represents each grid cell, which is either free or occupied. Cells whose contents have never been observed are characterized as $p(m_{i,j}) = 0.5$, contributing one unit of entropy per cell. Cells whose contents are perfectly known contribute no entropy to the summation.
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection{If you need to write an algorithm}
+\begin{algorithm}[t]
+\caption{Exploration Training with RL}
+\label{alg::ch4::train}
+\textbf{initialize:} $\Gcal$, $\thetabf$, $step$\\
+$\Dcal \gets \emptyset $\\
+\While{\texttt{step} < \texttt{max\_training\_steps} }
+{
+\uIf{RL="DQN"}{
+{\color{gray}\# Gather experience visiting frontier nodes}\\
+$\fbf \gets \texttt{action\_sampling}(\mathcal{G})$\\
+$\mathcal{G}', r \gets \texttt{visit\_frontier}(\Gcal, \fbf)$\\
+$step \gets step+1$\\
+$\Dcal \gets \Dcal \cup\{\Gcal, \fbf, r, \Gcal'\}$\\
+$\mathcal{G} \gets \mathcal{G}'$\\
+{\color{gray}\# Train policy with DQN algorithm}\\
+$\pi_{\thetabf} \gets \texttt{dqn}(\Dcal)$\\
+}
+\uElseIf{RL="A2C"}{
+{\color{gray}\# Gather experience visiting frontier nodes}\\
+$\fbf \gets \pi_{\thetabf}(\mathcal{G})$\\
+$\mathcal{G}', r \gets \texttt{visit\_frontier}(\Gcal, \fbf)$\\
+$step \gets step+1$\\
+$\Dcal \gets \Dcal \cup\{\Gcal, \fbf, r, \Gcal'\}$\\
+$\mathcal{G} \gets \mathcal{G}'$\\
+{\color{gray}\# Train policy with A2C algorithm}\\
+\uIf{\texttt{$step \mod policy\_update\_steps=0$}}{
+$\pi_{\thetabf} \gets \texttt{a2c}(\Dcal)$\\
+$\Dcal \gets \emptyset $\\
+}
+}}
+\textbf{return:} $\pi_{\thetabf}$
+\end{algorithm}
+
+\clearpage

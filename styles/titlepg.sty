@@ -1,0 +1,176 @@
+% 
+%       All the information in the fields below should be changed for the thesis/dissertation 
+%       The fields here are used with fake information only as a guide.  You may add or delete
+%       fields as needed.  The Advisory Committee varies in size, so add members as needed. 
+%
+%       updated copyright page - May 2010 
+%
+\newcommand{\thesistitle}{a latex document template for master or phd thesis}
+\newcommand{\thesisyear}{2020}
+\newcommand{\thesisname}{Default Student Name}
+\newcommand{\thesischairadvisor}{Default Adviros Name}
+\newcommand{\committeenameA}{Default Committee Member A}
+\newcommand{\committeenameB}{Default Committee Member B} 
+\newcommand{\committeenameC}{Default Committee Member C}
+\newcommand{\thesisdepartment}{Mechanical Engineering}
+\newcommand{\thesisdate}{December 17, 2020}
+%\newcommand{\thesistype}{dissertation}
+\newcommand{\thesistype}{Default Thesis Document Type}
+\newcommand{\thesisdegree}{Doctor of Philosophy}
+\newcommand{\thesissigline}[1]{%
+  \leftline{\hbox to 2.5in{}\hrulefill}
+  \endgraf
+  \vspace*{-18pt}
+  \leftline{\hbox to 2.5in{}{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+%     Thesis / Dissertation title page
+%
+%     This template is set up initially for dissertations.  The title page will have
+%     some modifications to it for a master thesis.  Please read the comments 
+%     below
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\thesistitlepage}{
+    \thispagestyle{empty}
+    \begin{center}
+    \begin{spacing}{2}
+      \MakeUppercase {\thesistitle} \\
+       by \\
+       \thesisname \\
+       A \MakeUppercase {\thesistype} \\[3mm]
+     \end{spacing}
+    % \begin{spacing}{1}
+    %   Submitted to the Faculty of the Stevens Institute of Technology \\ 
+    %  in partial fulfillment of the requirements for the degree of \\[3mm]
+    %  \end{spacing}
+      \begin{spacing}{2}
+    \MakeUppercase {\thesisdegree}   %% removed \\       
+    \vspace{20mm}
+     \end{spacing}
+%       \strut \vfill
+  \mbox{ }  \hfill \begin{minipage}{80mm}
+                       \begin{spacing}{1}
+							\noindent \rule{3.1in}{0.1mm}
+							\thesisname, Candidate\\[3mm]
+							\underline{ADVISORY COMMITTEE}\\[3mm]
+							\noindent \rule{3.1in}{0.1mm}\\[-1.3mm]
+							% for master thesis, change Chairman to Advisor
+							{\thesischairadvisor}, Chairman  \hfill{Date}\\[2mm]
+							{\noindent \rule{3.1in}{0.1mm}}\\[-1.3mm]
+							% for master thesis, add Reader after committeenameA
+							%
+							{\committeenameA}        \hfill{Date}\\[2mm]
+							%
+							%  for master thesis, remove / comment out the following six lines
+							{\noindent \rule{3.1in}{0.1mm}}\\[-1.3mm]
+							{\committeenameB}  \hfill{Date}\\[2mm]
+							{\noindent \rule{3.1in}{0.1mm}}\\[-1.3mm]
+							{\committeenameC}  \hfill{Date}\\[2mm]
+							%{\noindent \rule{3.1in}{0.1mm}}\\[-1.3mm]
+							%{\committeenameD}  \hfill{Date}     % removed \\
+	                 	\end{spacing}
+					   \end{minipage}
+%     \vfill \strut				6/2009 -   changed to the following two lines
+    \vspace{35mm}
+	\strut
+  \begin{spacing}{1}
+   \MakeUppercase {Stevens Institute of Technology}\\
+   Castle Point on Hudson \\
+  Hoboken, NJ 07030 \\
+   \thesisyear
+  \end{spacing}
+    \end{center}
+%   \vfill \strut
+    \newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+%     Copyright Page 
+%
+%     The copyright page is optional
+%  
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\thesiscopyrightpage}{
+     \thispagestyle{empty}      %no page number on the copyright page
+    \strut \vfill
+    \vspace*{7.2in}
+   \begin{center}
+        \textcopyright  \thesisyear, \thesisname . All rights reserved.
+    \end{center}
+    \vfill \strut
+    \newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+%     Abstract
+%
+%     The abstract must be 350 words or less
+%  
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newcommand{\thesisabstract}{
+\begin{center}
+\MakeUppercase{\thesistitle}
+ 
+\vspace{12pt}
+ABSTRACT
+\vspace{12pt}
+\end{center}
+
+\lipsum[1]
+
+\lipsum[2]
+
+\vspace{12pt}
+
+
+
+\begin{flushleft}
+Author: \thesisname \\
+Advisor: \thesischairadvisor \\
+Date: \thesisdate \\
+Department: \thesisdepartment \\
+Degree: \thesisdegree \\
+\end{flushleft}
+    \newpage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+%     Dedication Page
+%
+%     This section is optional
+%  
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\thesisdedicationpage}{
+
+    \strut \vspace{2in}
+   \begin{center}
+       To my family and my parents.
+    \end{center}
+    \vfill \strut
+    \newpage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+%     Acknowledgments
+%
+%     This section is optional
+%  
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\thesisacknowledgments}{
+
+\noindent \textbf{Acknowledgments} \\[6mm]
+Will be finished before Defence.
+    \vfill \strut
+    \newpage}

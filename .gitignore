@@ -1,0 +1,47 @@
+# ------------------ M E R G E -------------------------
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output \"$MERGED\" --label \"MERGE (REMOTE BASE MY)\"
+    trustExitCode = false
+[mergetool]
+    # don't ask if we want to skip merge
+    prompt = false
+    # don't create backup *.orig files
+    keepBackup = false 
+# ------------------ D I F F -------------------------
+[diff]
+    guitool = meld
+
+[difftool "meld"]
+    cmd = meld \"$LOCAL\" \"$REMOTE\" --label \"DIFF (ORIGINAL MY)\"
+*.aux
+*.lof
+*.lot
+*.log
+*.out
+*.gz
+*.toc
+*.fdb_latexmk
+*~
+~*
+*.bbl
+*.blg
+*auto
+*_region_.tex
+*.DS_Store
+*.prj
+*.prj.bak
+*.ps
+*.dvi
+*.synctex
+*.snm
+*.nav
+*.bcf
+*.run.xml
+pdf/*
+figures/im_source/*
+figures/inkscape/*.pdf
+figures/ppt/*.pdf
+figures/PsFragFigGeneration/*.pdf
+main.pdf
